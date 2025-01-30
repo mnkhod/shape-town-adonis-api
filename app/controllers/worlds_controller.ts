@@ -5,15 +5,17 @@ import type { HttpContext } from '@adonisjs/core/http'
 
 export default class WorldsController {
   @inject()
-  createNeverForgetWaterAchievement({ params }: HttpContext, evmService: EvmService) {
-    return { achievement: 'Never forget water', address: params.address, test: evmService.test() }
+  async createFirstHarvestAchievement({ params, response }: HttpContext, evmService: EvmService) {
+    await evmService.createFirstHarvestAchievement(params.address, response)
   }
 
-  createFirstHarvestAchievement() {
-    return { achievement: 'First harvest' }
+  @inject()
+  async createGiftFromNatureAchievement({ params, response }: HttpContext, evmService: EvmService) {
+    await evmService.createGiftFromNatureAchievement(params.address, response)
   }
 
-  createGiftFromNatureAchievement() {
-    return { achievement: 'Gift from nature' }
+  @inject()
+  async createFirstFishAchievement({ params, response }: HttpContext, evmService: EvmService) {
+    await evmService.createFirstFishAchievement(params.address, response)
   }
 }

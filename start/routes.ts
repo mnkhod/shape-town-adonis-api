@@ -17,8 +17,8 @@ router.get('/nft/data', [NftsController, 'all'])
 
 router
   .group(() => {
-    router.get('create/0/:address', [WorldsController, 'createNeverForgetWaterAchievement'])
-    router.get('create/1/:address', [WorldsController, 'createFirstHarvestAchievement'])
-    router.get('create/2/:address', [WorldsController, 'createGiftFromNatureAchievement'])
+    router.get('create/0/:address', [WorldsController, 'createFirstHarvestAchievement'])
+    router.get('create/1/:address', [WorldsController, 'createGiftFromNatureAchievement'])
+    router.get('create/2/:address', [WorldsController, 'createFirstFishAchievement'])
   })
   .prefix('/world/nft')
