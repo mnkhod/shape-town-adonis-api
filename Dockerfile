@@ -34,7 +34,7 @@ RUN npm run build
 FROM base
 
 # Copy built application
-COPY --from=build /app /app
+COPY --from=build /app/build /app
 
 # Setup sqlite3 on a separate volume
 RUN mkdir -p /data
@@ -51,4 +51,4 @@ ENV CACHE_VIEWS="true" \
     HOST="0.0.0.0" \
     PORT="3000" \
     SESSION_DRIVER="cookie"
-CMD [ "node", "/app/build/server.js" ]
+CMD [ "node", "./bin/server.js" ]
